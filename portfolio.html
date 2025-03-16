@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Nexus Digital_</title>
+    <script>
+        // Immediately set dark mode if needed to prevent flash
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <header class="fixed w-full bg-white dark:bg-gray-800 shadow-md z-50">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                        Nexus Digital_
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" data-translate="home">Home</a>
+                    <a href="portfolio.html" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" data-translate="portfolio">Portfolio</a>
+                    <a href="about.html" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" data-translate="about">About</a>
+                    <a href="contact.html" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" data-translate="contact">Contact</a>
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <i class="fas fa-moon text-gray-700 dark:hidden"></i>
+                        <i class="fas fa-sun hidden text-yellow-400 dark:block"></i>
+                    </button>
+                    <button id="language-toggle" class="px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition-colors">
+                        EN/PT
+                    </button>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="hamburger" class="text-gray-700 dark:text-gray-300">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="nav-menu" class="hidden md:hidden fixed inset-0 bg-white dark:bg-gray-800 z-50">
+                <div class="flex justify-end p-4">
+                    <button id="close-menu" class="text-gray-700 dark:text-gray-300">
+                        <i class="fas fa-times text-2xl"></i>
+                    </button>
+                </div>
+                <div class="flex flex-col items-center space-y-8 pt-8">
+                    <a href="index.html" class="text-xl text-gray-700 dark:text-gray-300" data-translate="home">Home</a>
+                    <a href="portfolio.html" class="text-xl text-gray-700 dark:text-gray-300" data-translate="portfolio">Portfolio</a>
+                    <a href="about.html" class="text-xl text-gray-700 dark:text-gray-300" data-translate="about">About</a>
+                    <a href="contact.html" class="text-xl text-gray-700 dark:text-gray-300" data-translate="contact">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-24">
+        <section class="container mx-auto px-6 py-16">
+            <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-8 text-center" data-translate="portfolioTitle">Our Portfolio</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 mb-12 text-center max-w-3xl mx-auto" data-translate="portfolioDesc">
+                Explore our latest projects showcasing our expertise in web development and digital solutions.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card relative overflow-hidden rounded-lg shadow-lg group">
+                    <img src="https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg" alt="E-commerce Platform" class="w-full h-64 object-cover">
+                    <div class="project-overlay absolute inset-0 bg-blue-600 bg-opacity-90 flex flex-col justify-center items-center p-6 opacity-0 transition-opacity duration-300">
+                        <h3 class="text-2xl font-bold text-white mb-3" data-translate="ecommerce">E-commerce Platform</h3>
+                        <p class="text-white text-center mb-4" data-translate="ecommerceDesc">A full-featured online store with payment integration and inventory management.</p>
+                        <div class="flex flex-col space-y-3 w-full">
+                            <div class="flex space-x-3 justify-center">
+                                <span class="px-3 py-1 bg-white text-blue-600 rounded-full text-sm">React</span>
+                                <span class="px-3 py-1 bg-white text-blue-600 rounded-full text-sm">Node.js</span>
+                                <span class="px-3 py-1 bg-white text-blue-600 rounded-full text-sm">MongoDB</span>
+                            </div>
+                            <div class="flex justify-center space-x-4 mt-4">
+                                <a href="https://github.com/nexusdigital/ecommerce" target="_blank" class="bg-white text-blue-600 px-4 py-2 rounded-full flex items-center">
+                                    <i class="fab fa-github mr-2"></i> <span data-translate="repository">Repository</span>
+                                </a>
+                                <a href="https://ecommerce.nexusdigital.com" target="_blank" class="bg-white text-blue-600 px-4 py-2 rounded-full flex items-center">
+                                    <i class="fas fa-external-link-alt mr-2"></i> <span data-translate="liveDemo">Live Demo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card relative overflow-hidden rounded-lg shadow-lg group">
+                    <img src="https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg" alt="Portfolio Website" class="w-full h-64 object-cover">
+                    <div class="project-overlay absolute inset-0 bg-purple-600 bg-opacity-90 flex flex-col justify-center items-center p-6 opacity-0 transition-opacity duration-300">
+                        <h3 class="text-2xl font-bold text-white mb-3" data-translate="photoPortfolio">Portfolio Website</h3>
+                        <p class="text-white text-center mb-4" data-translate="photoPortfolioDesc">A responsive portfolio website for a professional photographer.</p>
+                        <div class="flex flex-col space-y-3 w-full">
+                            <div class="flex space-x-3 justify-center">
+                                <span class="px-3 py-1 bg-white text-purple-600 rounded-full text-sm">HTML5</span>
+                                <span class="px-3 py-1 bg-white text-purple-600 rounded-full text-sm">CSS3</span>
+                                <span class="px-3 py-1 bg-white text-purple-600 rounded-full text-sm">JavaScript</span>
+                            </div>
+                            <div class="flex justify-center space-x-4 mt-4">
+                                <a href="https://github.com/nexusdigital/photographer-portfolio" target="_blank" class="bg-white text-purple-600 px-4 py-2 rounded-full flex items-center">
+                                    <i class="fab fa-github mr-2"></i> <span data-translate="repository">Repository</span>
+                                </a>
+                                <a href="https://photographer.nexusdigital.com" target="_blank" class="bg-white text-purple-600 px-4 py-2 rounded-full flex items-center">
+                                    <i class="fas fa-external-link-alt mr-2"></i> <span data-translate="liveDemo">Live Demo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card relative overflow-hidden rounded-lg shadow-lg group">
+                    <img src="https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg" alt="Task Management App" class="w-full h-64 object-cover">
+                    <div class="project-overlay absolute inset-0 bg-green-600 bg-opacity-90 flex flex-col justify-center items-center p-6 opacity-0 transition-opacity duration-300">
+                        <h3 class="text-2xl font-bold text-white mb-3" data-translate="taskManager">Task Management App</h3>
+                        <p class="text-white text-center mb-4" data-translate="taskManagerDesc">A collaborative task management application with real-time updates.</p>
+                        <div class="flex flex-col space-y-3 w-full">
+                            <div class="flex space-x-3 justify-center">
+                                <span class="px-3 py-1 bg-white text-green-600 rounded-full text-sm">Vue.js</span>
+                                <span class="px-3 py-1 bg-white text-green-600 rounded-full text-sm">Firebase</span>
+                                <span class="px-3 py-1 bg-white text-green-600 rounded-full text-sm">Tailwind</span>
+                            </div>
+                            <div class="flex justify-center space-x-4 mt-4">
+                                <a href="https://github.com/nexusdigital/task-manager" target="_blank" class="bg-white text-green-600 px-4 py-2 rounded-full flex items-center">
+                                    <i class="fab fa-github mr-2"></i> <span data-translate="repository">Repository</span>
+                                </a>
+                                <a href="https://tasks.nexusdigital.com" target="_blank" class="bg-white text-green-600 px-4 py-2 rounded-full flex items-center">
+                                    <i class="fas fa-external-link-alt mr-2"></i> <span data-translate="liveDemo">Live Demo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-100 dark:bg-gray-800">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-gray-600 dark:text-gray-400 mb-4 md:mb-0" data-translate="copyright">
+                    &copy; 2023 Nexus Digital_. All rights reserved.
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
