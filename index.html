@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Digital - Creative Digital Agency</title>
+    <script>
+        // Immediately set dark mode if needed to prevent flash
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <header class="fixed w-full bg-white dark:bg-gray-800 shadow-md z-50">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                        Nexus Digital_
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" data-translate="home">Home</a>
+                    <a href="portfolio.html" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" data-translate="portfolio">Portfolio</a>
+                    <a href="about.html" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" data-translate="about">About</a>
+                    <a href="contact.html" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" data-translate="contact">Contact</a>
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <i class="fas fa-moon text-gray-700 dark:hidden"></i>
+                        <i class="fas fa-sun hidden text-yellow-400 dark:block"></i>
+                    </button>
+                    <button id="language-toggle" class="px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition-colors">
+                        EN/PT
+                    </button>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="hamburger" class="text-gray-700 dark:text-gray-300">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="nav-menu" class="hidden md:hidden fixed inset-0 bg-white dark:bg-gray-800 z-50">
+                <div class="flex justify-end p-4">
+                    <button id="close-menu" class="text-gray-700 dark:text-gray-300">
+                        <i class="fas fa-times text-2xl"></i>
+                    </button>
+                </div>
+                <div class="flex flex-col items-center space-y-8 pt-8">
+                    <a href="index.html" class="text-xl text-gray-700 dark:text-gray-300" data-translate="home">Home</a>
+                    <a href="portfolio.html" class="text-xl text-gray-700 dark:text-gray-300" data-translate="portfolio">Portfolio</a>
+                    <a href="about.html" class="text-xl text-gray-700 dark:text-gray-300" data-translate="about">About</a>
+                    <a href="contact.html" class="text-xl text-gray-700 dark:text-gray-300" data-translate="contact">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-24">
+        <!-- Hero Section -->
+        <section class="container mx-auto px-6 py-16">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6" data-translate="welcome">
+                        Transforming Ideas Into Digital Reality
+                    </h1>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-8" data-translate="partner">
+                        We craft exceptional digital experiences through innovative web development and full-stack solutions.
+                    </p>
+                    <a href="contact.html" class="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors" data-translate="startProject">
+                        Start Your Project
+                    </a>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-blue-100 dark:bg-blue-900/50 p-6 rounded-lg">
+                            <i class="fas fa-code text-3xl text-blue-600 dark:text-blue-400 mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white" data-translate="webDev">Web Development</h3>
+                            <p class="text-gray-600 dark:text-gray-400" data-translate="webDevDesc">Custom websites and web applications</p>
+                        </div>
+                        <div class="bg-purple-100 dark:bg-purple-900/50 p-6 rounded-lg">
+                            <i class="fas fa-mobile-alt text-3xl text-purple-600 dark:text-purple-400 mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white" data-translate="responsiveDesign">Responsive Design</h3>
+                            <p class="text-gray-600 dark:text-gray-400" data-translate="responsiveDesc">Mobile-first approach</p>
+                        </div>
+                        <div class="bg-green-100 dark:bg-green-900/50 p-6 rounded-lg">
+                            <i class="fas fa-database text-3xl text-green-600 dark:text-green-400 mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white" data-translate="backendSolutions">Backend Solutions</h3>
+                            <p class="text-gray-600 dark:text-gray-400" data-translate="backendDesc">Robust server-side development</p>
+                        </div>
+                        <div class="bg-yellow-100 dark:bg-yellow-900/50 p-6 rounded-lg">
+                            <i class="fas fa-rocket text-3xl text-yellow-600 dark:text-yellow-400 mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white" data-translate="performance">Performance</h3>
+                            <p class="text-gray-600 dark:text-gray-400" data-translate="performanceDesc">Speed and optimization</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-100 dark:bg-gray-800 mt-20">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-gray-600 dark:text-gray-400 mb-4 md:mb-0" data-translate="copyright">
+                    &copy; 2023 Nexus Digital_. All rights reserved.
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
