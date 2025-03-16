@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Nexus Digital_</title>
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        
+        .tech-card {
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .tech-card .icon-wrapper {
+            transition: transform 0.4s ease;
+        }
+
+        .tech-card:hover .icon-wrapper {
+            transform: scale(1.1);
+        }
+
+        .tech-card:hover i {
+            animation: gentleFloat 2s ease-in-out infinite;
+        }
+
+        @keyframes gentleFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .tech-card h3 {
+            transition: color 0.3s ease;
+        }
+
+        .tech-card:hover h3 {
+            color: #3b82f6;
+        }
+
+        .tech-stack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .tech-stack-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .dark .tech-card {
+            background: linear-gradient(145deg, #1f2937, #111827);
+        }
+
+        .dark .tech-card:hover {
+            background: linear-gradient(145deg, #1f2937, #1a2436);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <header class="fixed w-full bg-white dark:bg-gray-800 shadow-md z-50">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                        Nexus Digital_
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" data-translate="home">Home</a>
+                    <a href="portfolio.html" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" data-translate="portfolio">Portfolio</a>
+                    <a href="about.html" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" data-translate="about">About</a>
+                    <a href="contact.html" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" data-translate="contact">Contact</a>
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <i class="fas fa-moon text-gray-700 dark:hidden"></i>
+                        <i class="fas fa-sun hidden text-yellow-400 dark:block"></i>
+                    </button>
+                    <button id="language-toggle" class="px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition-colors">
+                        EN/PT
+                    </button>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="hamburger" class="text-gray-700 dark:text-gray-300">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="nav-menu" class="hidden md:hidden fixed inset-0 bg-white dark:bg-gray-800 z-50">
+                <div class="flex justify-end p-4">
+                    <button id="close-menu" class="text-gray-700 dark:text-gray-300">
+                        <i class="fas fa-times text-2xl"></i>
+                    </button>
+                </div>
+                <div class="flex flex-col items-center space-y-8 pt-8">
+                    <a href="index.html" class="text-xl text-gray-700 dark:text-gray-300" data-translate="home">Home</a>
+                    <a href="portfolio.html" class="text-xl text-gray-700 dark:text-gray-300" data-translate="portfolio">Portfolio</a>
+                    <a href="about.html" class="text-xl text-gray-700 dark:text-gray-300" data-translate="about">About</a>
+                    <a href="contact.html" class="text-xl text-gray-700 dark:text-gray-300" data-translate="contact">Contact</a>
+                    <div class="flex flex-col items-center space-y-4">
+                        <button id="mobile-theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300">
+                            <i class="fas fa-moon text-2xl dark:hidden"></i>
+                            <i class="fas fa-sun text-2xl text-yellow-400 hidden dark:block"></i>
+                        </button>
+                        <button id="mobile-language-toggle" class="px-6 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition-colors">
+                            EN/PT
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-24">
+        <!-- About Section -->
+        <section class="container mx-auto px-6 py-16">
+            <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-8 text-center" data-translate="aboutTitle">About Us</h1>
+            
+            <div class="max-w-3xl mx-auto mb-16">
+                <p class="text-lg text-gray-600 dark:text-gray-400 mb-6" data-translate="aboutDesc">
+                    At Nexus Digital_, we're passionate about creating exceptional digital experiences that drive business growth. With years of experience in web development and digital solutions, we've helped numerous businesses establish their online presence and achieve their digital goals.
+                </p>
+                <p class="text-lg text-gray-600 dark:text-gray-400" data-translate="teamDesc">
+                    Our team combines creativity with technical expertise to deliver solutions that not only look great but also perform exceptionally well.
+                </p>
+            </div>
+
+            <!-- Tech Stack Section -->
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center" data-translate="techStack">Our Tech Stack</h2>
+                <div class="tech-stack-grid">
+                    <div class="tech-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                        <div class="icon-wrapper mb-6">
+                            <i class="fab fa-html5 text-5xl text-orange-500"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">HTML5</h3>
+                        <p class="text-gray-600 dark:text-gray-400" data-translate="htmlDesc">Modern semantic markup</p>
+                    </div>
+                    <div class="tech-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                        <div class="icon-wrapper mb-6">
+                            <i class="fab fa-css3-alt text-5xl text-blue-500"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">CSS3</h3>
+                        <p class="text-gray-600 dark:text-gray-400" data-translate="cssDesc">Advanced styling</p>
+                    </div>
+                    <div class="tech-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                        <div class="icon-wrapper mb-6">
+                            <i class="fab fa-js text-5xl text-yellow-400"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">JavaScript</h3>
+                        <p class="text-gray-600 dark:text-gray-400" data-translate="jsDesc">Dynamic functionality</p>
+                    </div>
+                    <div class="tech-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                        <div class="icon-wrapper mb-6">
+                            <i class="fab fa-python text-5xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">Python</h3>
+                        <p class="text-gray-600 dark:text-gray-400" data-translate="pythonDesc">Backend development</p>
+                    </div>
+                    <div class="tech-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                        <div class="icon-wrapper mb-6">
+                            <i class="fas fa-database text-5xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">SQL</h3>
+                        <p class="text-gray-600 dark:text-gray-400" data-translate="sqlDesc">Database management</p>
+                    </div>
+                    <div class="tech-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                        <div class="icon-wrapper mb-6">
+                            <i class="fab fa-php text-5xl text-purple-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">PHP</h3>
+                        <p class="text-gray-600 dark:text-gray-400" data-translate="phpDesc">Server-side scripting</p>
+                    </div>
+                    <div class="tech-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                        <div class="icon-wrapper mb-6">
+                            <i class="fab fa-node-js text-5xl text-green-500"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">Node.js</h3>
+                        <p class="text-gray-600 dark:text-gray-400" data-translate="nodeDesc">Runtime environment</p>
+                    </div>
+                    <div class="tech-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                        <div class="icon-wrapper mb-6">
+                            <i class="fab fa-cuttlefish text-5xl text-blue-700"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">C</h3>
+                        <p class="text-gray-600 dark:text-gray-400" data-translate="cDesc">System Programming</p>
+                    </div>
+                    <div class="tech-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                        <div class="icon-wrapper mb-6">
+                            <i class="fab fa-python text-5xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">Django</h3>
+                        <p class="text-gray-600 dark:text-gray-400" data-translate="djangoDesc">Web Framework</p>
+                    </div>
+                    <div class="tech-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                        <div class="icon-wrapper mb-6">
+                            <i class="fab fa-git-alt text-5xl text-red-500"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">Git</h3>
+                        <p class="text-gray-600 dark:text-gray-400" data-translate="gitDesc">Version control</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-100 dark:bg-gray-800">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-gray-600 dark:text-gray-400 mb-4 md:mb-0" data-translate="copyright">
+                    &copy; 2023 Nexus Digital_. All rights reserved.
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-consent" class="fixed bottom-0 left-0 right-0 bg-gray-800 text-white p-4 z-50 transform transition-transform duration-300 translate-y-full">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
+            <div class="mb-4 md:mb-0">
+                <p class="text-sm">
+                    We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
+                    <a href="privacy.html" class="underline hover:text-blue-400">Learn more</a>
+                </p>
+            </div>
+            <div class="flex space-x-4">
+                <button onclick="acceptCookies()" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors">
+                    Accept
+                </button>
+                <button onclick="declineCookies()" class="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700 transition-colors">
+                    Decline
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Cookie consent functionality
+        function showCookieConsent() {
+            const consent = localStorage.getItem('cookieConsent');
+            if (!consent) {
+                setTimeout(() => {
+                    const banner = document.getElementById('cookie-consent');
+                    banner.classList.remove('translate-y-full');
+                }, 1000);
+            }
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            const banner = document.getElementById('cookie-consent');
+            banner.classList.add('translate-y-full');
+        }
+
+        function declineCookies() {
+            localStorage.setItem('cookieConsent', 'declined');
+            const banner = document.getElementById('cookie-consent');
+            banner.classList.add('translate-y-full');
+        }
+
+        // Show cookie consent banner when page loads
+        document.addEventListener('DOMContentLoaded', showCookieConsent);
+    </script>
+</body>
+</html>
