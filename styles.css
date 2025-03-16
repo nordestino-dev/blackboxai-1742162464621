@@ -1,0 +1,152 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between; /* Keep logo and nav on the left */
+    align-items: center;
+    background-color: #007BFF; /* Changed to blue */
+    color: white;
+    padding: 20px; /* Added padding for better spacing */
+}
+
+header nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.header-buttons {
+    display: flex; /* Align buttons in a row */
+    gap: 10px; /* Space between buttons */
+    position: relative; /* Positioning for mobile menu */
+    display: none; /* Hide buttons by default */
+}
+
+#nav-menu {
+    position: fixed; /* Positioning for full screen */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    background-color: #007BFF; /* Match header color */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    z-index: 1000; /* Ensure it appears above other content */
+    padding-top: 60px; /* Space for header */
+}
+
+#close-menu {
+    position: absolute; /* Positioning for close button */
+    top: 20px; /* Distance from the top */
+    right: 20px; /* Distance from the right */
+    font-size: 30px; /* Size of the close button */
+    background: none; /* No background */
+    border: none; /* No border */
+    color: white; /* Color of the close button */
+    cursor: pointer; /* Pointer cursor for the button */
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #007BFF; /* Changed to blue */
+}
+
+/* Contact Form Styles */
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 30px; /* Increased padding for a more spacious feel */
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+}
+
+.form-input, .form-textarea {
+    width: 100%;
+    padding: 12px; /* Increased padding for better touch targets */
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s; /* Added transition for focus effect */
+}
+
+.form-input:focus, .form-textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.form-button {
+    background-color: #007BFF;
+    color: white;
+    padding: 12px 20px; /* Increased padding for better appearance */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Added transition for hover effect */
+}
+
+.form-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Dark Theme Styles */
+body.dark-theme {
+    background-color: #121212;
+    color: white;
+}
+
+header.dark-theme {
+    background-color: #1e1e1e;
+}
+
+footer.dark-theme {
+    background-color: #1e1e1e;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Show hamburger on mobile */
+    }
+
+    #nav-menu {
+        display: none; /* Hide menu by default */
+        flex-direction: column; /* Stack menu items */
+        position: fixed; /* Positioning for full screen */
+        top: 0; /* Align to the top */
+        left: 0; /* Align to the left */
+        background-color: #007BFF; /* Match header color */
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        z-index: 1000; /* Ensure it appears above other content */
+        padding-top: 60px; /* Space for header */
+    }
+
+    #nav-menu.active {
+        display: flex; /* Show menu when active */
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+    }
+    header nav ul {
+        display: flex;
+        flex-direction: column;
+    }
+}
