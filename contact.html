@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Nexus Digital_</title>
+    <script>
+        // Immediately set dark mode if needed to prevent flash
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        .form-input:focus, .form-textarea:focus {
+            outline: 2px solid #2563eb;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <header class="fixed w-full bg-white dark:bg-gray-800 shadow-md z-50">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                        Nexus Digital_
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" data-translate="home">Home</a>
+                    <a href="portfolio.html" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" data-translate="portfolio">Portfolio</a>
+                    <a href="about.html" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" data-translate="about">About</a>
+                    <a href="contact.html" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" data-translate="contact">Contact</a>
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <i class="fas fa-moon text-gray-700 dark:hidden"></i>
+                        <i class="fas fa-sun hidden text-yellow-400 dark:block"></i>
+                    </button>
+                    <button id="language-toggle" class="px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition-colors">
+                        EN/PT
+                    </button>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="hamburger" class="text-gray-700 dark:text-gray-300">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="nav-menu" class="hidden md:hidden fixed inset-0 bg-white dark:bg-gray-800 z-50">
+                <div class="flex justify-end p-4">
+                    <button id="close-menu" class="text-gray-700 dark:text-gray-300">
+                        <i class="fas fa-times text-2xl"></i>
+                    </button>
+                </div>
+                <div class="flex flex-col items-center space-y-8 pt-8">
+                    <a href="index.html" class="text-xl text-gray-700 dark:text-gray-300" data-translate="home">Home</a>
+                    <a href="portfolio.html" class="text-xl text-gray-700 dark:text-gray-300" data-translate="portfolio">Portfolio</a>
+                    <a href="about.html" class="text-xl text-gray-700 dark:text-gray-300" data-translate="about">About</a>
+                    <a href="contact.html" class="text-xl text-gray-700 dark:text-gray-300" data-translate="contact">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-24">
+        <section class="container mx-auto px-6 py-16">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-8 text-center" data-translate="contactTitle">Get in Touch</h1>
+                <p class="text-lg text-gray-600 dark:text-gray-400 mb-12 text-center" data-translate="contactDesc">
+                    Ready to start your project? We'd love to hear from you!
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Contact Form -->
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg">
+                        <form class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" data-translate="name">
+                                    Name
+                                </label>
+                                <input type="text" id="name" name="name" required
+                                    class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 transition-colors"
+                                    placeholder="Your name">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" data-translate="email">
+                                    Email
+                                </label>
+                                <input type="email" id="email" name="email" required
+                                    class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 transition-colors"
+                                    placeholder="your@email.com">
+                            </div>
+
+                            <div>
+                                <label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" data-translate="subject">
+                                    Subject
+                                </label>
+                                <select id="subject" name="subject" required
+                                    class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 transition-colors">
+                                    <option value="" data-translate="selectSubject">Select a subject</option>
+                                    <option value="project" data-translate="newProject">New Project</option>
+                                    <option value="quote" data-translate="requestQuote">Request Quote</option>
+                                    <option value="partnership" data-translate="partnership">Partnership</option>
+                                    <option value="other" data-translate="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" data-translate="message">
+                                    Message
+                                </label>
+                                <textarea id="message" name="message" required rows="5"
+                                    class="form-textarea w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 transition-colors"
+                                    placeholder="Your message"></textarea>
+                            </div>
+
+                            <button type="submit" data-translate="send"
+                                class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-300">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="space-y-8">
+                        <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4" data-translate="contactInfo">Contact Information</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-4">
+                                    <i class="fas fa-map-marker-alt text-blue-600 dark:text-blue-400 text-xl mt-1"></i>
+                                    <div>
+                                        <p class="text-gray-700 dark:text-gray-300" data-translate="address">123 Digital Street</p>
+                                        <p class="text-gray-700 dark:text-gray-300" data-translate="city">Tech Valley, CA 94043</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <i class="fas fa-phone text-blue-600 dark:text-blue-400 text-xl"></i>
+                                    <p class="text-gray-700 dark:text-gray-300" data-translate="phone">+1 (555) 123-4567</p>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <i class="fas fa-envelope text-blue-600 dark:text-blue-400 text-xl"></i>
+                                    <p class="text-gray-700 dark:text-gray-300" data-translate="emailAddress">contact@nexusdigital.com</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4" data-translate="businessHours">Business Hours</h3>
+                            <div class="space-y-2">
+                                <p class="text-gray-700 dark:text-gray-300" data-translate="weekdays">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                                <p class="text-gray-700 dark:text-gray-300" data-translate="saturday">Saturday: 10:00 AM - 4:00 PM</p>
+                                <p class="text-gray-700 dark:text-gray-300" data-translate="sunday">Sunday: Closed</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4" data-translate="connectWithUs">Connect With Us</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
+                                    <i class="fab fa-linkedin text-2xl"></i>
+                                </a>
+                                <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
+                                    <i class="fab fa-twitter text-2xl"></i>
+                                </a>
+                                <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
+                                    <i class="fab fa-github text-2xl"></i>
+                                </a>
+                                <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
+                                    <i class="fab fa-instagram text-2xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-100 dark:bg-gray-800">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-gray-600 dark:text-gray-400 mb-4 md:mb-0" data-translate="copyright">
+                    &copy; 2023 Nexus Digital_. All rights reserved.
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
